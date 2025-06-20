@@ -1,64 +1,40 @@
-🧴 Sephora Products & Reviews – Data Analysis Project
+# 🧴 Sephora Products & Reviews – Data Analysis Project
 
-This project analyzes product and customer review data from Sephora, with a focus on skincare products. Using Python, SQL, and Tableau, we performed data cleaning, EDA, and visualization to identify top-performing products and extract insights on pricing, satisfaction, and availability.
+This project analyzes Sephora skincare products and customer reviews to uncover insights about product performance, pricing, availability, and customer satisfaction. Using Python, SQL, and Tableau, we performed end-to-end data analysis and developed actionable recommendations for e-commerce strategy.
 
-🎯 Objective
+## 🎯 Objective
+Identify top-performing products and understand how factors like pricing, online-only status, and stock availability affect customer behavior.
 
-Identify high-performing products and understand how pricing, availability, and product attributes affect customer satisfaction and behavior.
+## 🛠️ Tools & Technologies
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- SQL
+- Tableau
+- Jupyter Notebook
 
-📊 Tools & Technologies
+## 📚 Dataset Overview
+- **Source:** [Kaggle](https://www.kaggle.com/datasets/nadyinky/sephora-products-and-skincare-reviews)
+- ~8,000 skincare products and ~1 million customer reviews
+- Two linked tables: products and reviews (via `product_id`)
 
-Python (Pandas, NumPy, Matplotlib, Seaborn)
+## 📈 Key Findings
+- ✅ Only 2% of highly rated products were out of stock
+- 💵 Most positive reviews were for products under $100
+- 🌐 Online-only products performed just as well as in-store items
+- 🧡 Most loved and reviewed: *Lip Sleeping Mask*
+- 🏆 Top brands: Erno Laszlo, Gisou, MARA
 
-SQL for data querying
+## 👤 Stakeholder
+**E-commerce Optimization Specialist** – Focuses on improving product visibility, pricing strategy, and customer experience using data-driven decisions.
 
-Tableau for dashboard creation
+## ✅ Recommendations
+- Promote top-rated products more prominently
+- Incentivize detailed and helpful customer reviews
+- Monitor stock levels for high-rated items
+- Apply discounts strategically to mid-priced products
+- Expand successful online-only product lines
 
-Jupyter Notebook for development
-
-🧵 Dataset Overview
-
-Source: Kaggle
-
-Size: ~8,000 products, ~1M reviews
-
-Structure: Two tables joined by product_id
-
-📈 Key Insights
-
-✅ Only 2% of highly-rated products were out of stock
-
-💲 Most satisfied customers purchased items under $100
-
-🌐 Online-only products perform as well as in-store
-
-🧡 Lip Sleeping Mask is the most loved & reviewed
-
-🥇 Top brands: Erno Laszlo, Gisou, MARA
-
-👤 Stakeholder
-
-E-commerce Optimization Specialist – Uses insights to improve digital storefront performance, stock levels, and customer experience.
-
-✅ Recommendations
-
-Promote top-rated products in campaigns
-
-Encourage helpful reviews via incentives
-
-Monitor stock for bestsellers in real time
-
-Apply discounts to mid-priced items strategically
-
-Expand online-only offerings in successful categories
-
-📁 Files in This Repo
-
-Data Cleaning + EDA-Python.ipynb – Main analysis notebook
-
-Sephora Products Dashboard.twbx – Tableau visualization
-
-sql.txt – SQL queries used
-
-Final Project Report.pdf – Full report with detailed analysis
-
+## 📁 Project Files
+- `Data Cleaning + EDA-Python.ipynb` – Python notebook for analysis
+- `Sephora Products Dashboard.twbx` – Tableau dashboard
+- `sql.txt` – SQL queries used for data exploration
+- `Final Project Report.pdf` – Full final report and insights
