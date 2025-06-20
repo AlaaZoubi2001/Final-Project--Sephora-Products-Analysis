@@ -1,0 +1,170 @@
+
+CREATE TABLE "all_reviews" (
+	"author_id"	INTEGER,
+	"rating"	INTEGER,
+	"is_recommended"	INTEGER,
+	"helpfulness"	TEXT,
+	"total_feedback_count"	INTEGER,
+	"total_neg_feedback_count"	INTEGER,
+	"total_pos_feedback_count"	INTEGER,
+	"submission_time"	TEXT,
+	"review_text"	TEXT,
+	"review_title"	TEXT,
+	"skin_tone"	TEXT,
+	"eye_color"	TEXT,
+	"skin_type"	TEXT,
+	"hair_color"	TEXT,
+	"product_id"	TEXT,
+	"product_name"	TEXT,
+	"brand_name"	TEXT,
+	"price_usd"	INTEGER,
+	PRIMARY KEY("author_id")
+);
+-----------------------------------------
+CREATE TABLE "product_info" (
+	"product_id"	TEXT,
+	"product_name"	TEXT,
+	"brand_id"	INTEGER,
+	"brand_name"	TEXT,
+	"loves_count"	INTEGER,
+	"rating"	REAL,
+	"reviews"	INTEGER,
+	"size"	TEXT,
+	"variation_type"	TEXT,
+	"variation_value"	TEXT,
+	"variation_desc"	TEXT,
+	"ingredients"	TEXT,
+	"price_usd"	INTEGER,
+	"value_price_usd"	TEXT,
+	"sale_price_usd"	TEXT,
+	"limited_edition"	INTEGER,
+	"new"	INTEGER,
+	"online_only"	INTEGER,
+	"out_of_stock"	INTEGER,
+	"sephora_exclusive"	INTEGER,
+	"highlights"	TEXT,
+	"primary_category"	TEXT,
+	"secondary_category"	TEXT,
+	"tertiary_category"	TEXT,
+	"child_count"	INTEGER,
+	"child_max_price"	TEXT,
+	"child_min_price"	TEXT,
+	PRIMARY KEY("product_id")
+);
+-----------------
+UPDATE product_info
+SET size = 'size not specified'
+WHERE size IS NULL;
+--------------------
+UPDATE all_reviews
+SET rating= 'no rating'
+WHERE rating IS NULL;
+-----------------------------
+UPDATE product_info
+SET
+  limited_edition = CASE limited_edition WHEN 1 THEN 'TRUE' ELSE 'FALSE' END,
+  new = CASE new WHEN 1 THEN 'TRUE' ELSE 'FALSE' END,
+  online_only = CASE online_only WHEN 1 THEN 'TRUE' ELSE 'FALSE' END,
+  out_of_stock = CASE out_of_stock WHEN 1 THEN 'TRUE' ELSE 'FALSE' END,
+  sephora_exclusive = CASE sephora_exclusive WHEN 1 THEN 'TRUE' ELSE 'FALSE' END;
+
+------------------------------------------------------------
+UPDATE product_info
+SET variation_value = LOWER(variation_value)
+WHERE variation_value IS NOT NULL;
+---------------------------
+CREATE TABLE all_reviews_deduped AS
+SELECT *
+FROM all_reviews
+WHERE rowid IN (
+    SELECT MIN(rowid)
+    FROM all_reviews
+    GROUP BY author_id, product_id, review_text
+);
+********
+DROP TABLE all_reviews;
+*************
+ALTER TABLE all_reviews_deduped RENAME TO all_reviews;
+********
+SELECT SUM(count - 1) AS duplicate_rows_remaining
+FROM (
+    SELECT COUNT(*) AS count
+    FROM all_reviews
+    GROUP BY author_id, product_id, review_text
+    HAVING count > 1
+);
+---------------------------------------------
+UPDATE all_reviews
+SET is_recommended = 
+  CASE 
+    WHEN is_recommended = 1 THEN 'True'
+    WHEN is_recommended = 0 THEN 'False'
+  END;
+----------------------------------
+UPDATE all_reviews
+SET
+  review_text = LOWER(review_text),
+  review_title = LOWER(review_title),
+  skin_tone = LOWER(skin_tone),
+  eye_color = LOWER(eye_color),
+  skin_type = LOWER(skin_type),
+  hair_color = LOWER(hair_color),
+  product_name = LOWER(product_name),
+  brand_name = LOWER(brand_name);
+--------------------------------------------------
+UPDATE all_reviews
+SET
+  skin_tone = CASE WHEN TRIM(skin_tone) = '' THEN NULL ELSE skin_tone END,
+  eye_color = CASE WHEN TRIM(eye_color) = '' THEN NULL ELSE eye_color END,
+  skin_type = CASE WHEN TRIM(skin_type) = '' THEN NULL ELSE skin_type END,
+  hair_color = CASE WHEN TRIM(hair_color) = '' THEN NULL ELSE hair_color END;
+-------------------------------------
+UPDATE product_info
+SET
+  product_name = LOWER(product_name),
+  brand_name = LOWER(brand_name),
+  size = LOWER(size),
+  variation_type = LOWER(variation_type);
+
+---------------------------------------
+UPDATE product_info
+SET
+  product_name = LOWER(product_name),
+  brand_name = LOWER(brand_name),
+  size = LOWER(size),
+  variation_type = LOWER(variation_type),
+  variation_value = LOWER(variation_value),
+  variation_desc = LOWER(variation_desc),
+  ingredients = LOWER(ingredients),
+  highlights = LOWER(highlights),
+  primary_category = LOWER(primary_category),
+  secondary_category = LOWER(secondary_category),
+  tertiary_category = LOWER(tertiary_category);
+
+
+--------------------------------------------------------------
+select substr(submission_time ,-4) as year ,  ROUND(AVG(helpfulness), 2) AS avg_helpfulness
+FROM all_reviews
+GROUP BY year
+ORDER by year
+------------------------------------------------------
+SELECT brand_name, ROUND(AVG(rating), 2) AS avg_rating
+FROM all_reviews
+GROUP BY brand_name
+ORDER BY avg_rating ASC
+LIMIT 5;
+---------------------------
+SELECT brand_name, ROUND(AVG(rating), 2) AS avg_rating
+FROM all_reviews
+GROUP BY brand_name
+ORDER BY avg_rating DESC
+LIMIT 5;
+
+--------------------------------------------------------------------
+SELECT skin_type, ROUND(AVG(rating), 2) AS avg_rating
+FROM all_reviews
+WHERE skin_type IS NOT NULL
+GROUP BY skin_type
+ORDER BY avg_rating DESC;
+----------------------------------------
+
