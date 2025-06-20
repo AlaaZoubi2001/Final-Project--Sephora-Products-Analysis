@@ -1,6 +1,6 @@
 # 🧴 Sephora Products & Reviews – Data Analysis Project
 
-This project analyzes Sephora skincare products and customer reviews to uncover insights about product performance, pricing, availability, and customer satisfaction. Using Python, SQL, and Tableau, we performed end-to-end data analysis and developed actionable recommendations for e-commerce strategy.
+This project analyzes Sephora skincare products and customer reviews to uncover insights about product performance, pricing, availability, and customer satisfaction. Using Python, SQL, and Tableau,EDA,we performed end-to-end data analysis and developed actionable recommendations for e-commerce strategy.
 
 ## 🎯 Objective
 Identify top-performing products and understand how factors like pricing, online-only status, and stock availability affect customer behavior.
@@ -17,11 +17,11 @@ Identify top-performing products and understand how factors like pricing, online
 - Two linked tables: products and reviews (via `product_id`)
 
 ## 📈 Key Findings
-- ✅ Only 2% of highly rated products were out of stock
-- 💵 Most positive reviews were for products under $100
-- 🌐 Online-only products performed just as well as in-store items
-- 🧡 Most loved and reviewed: *Lip Sleeping Mask*
-- 🏆 Top brands: Erno Laszlo, Gisou, MARA
+- Only 2% of highly rated products were out of stock
+- Most positive reviews were for products under $100
+- Online-only products performed just as well as in-store items
+- Most loved and reviewed: *Lip Sleeping Mask*
+- Top brands: Erno Laszlo, Gisou, MARA
 
 ## 👤 Stakeholder
 **E-commerce Optimization Specialist** – Focuses on improving product visibility, pricing strategy, and customer experience using data-driven decisions.
