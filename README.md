@@ -1,72 +1,64 @@
-# Final-Project--Sephora-Products-Analysis
-This project analyzes Sephora skincare products and reviews to uncover insights on customer satisfaction, pricing, and availability. Using Python, SQL, and Tableau,EDA, we identify top performing products and offer data-driven recommendations for e-commerce optimization.
 🧴 Sephora Products & Reviews – Data Analysis Project
 
-This project explores product-level and customer review data from Sephora, focusing on skincare products. Using Python, SQL, and Tableau, we conducted comprehensive data cleaning, exploratory data analysis (EDA), and dashboard creation to uncover insights into product performance, pricing, availability, and customer sentiment.
+This project analyzes product and customer review data from Sephora, with a focus on skincare products. Using Python, SQL, and Tableau, we performed data cleaning, EDA, and visualization to identify top-performing products and extract insights on pricing, satisfaction, and availability.
 
-🎯 Project Objective
+🎯 Objective
 
-To identify top-performing products and understand how pricing, availability, and product attributes influence customer satisfaction and behavior.
+Identify high-performing products and understand how pricing, availability, and product attributes affect customer satisfaction and behavior.
 
 📊 Tools & Technologies
 
-Python (Jupyter Notebook) – Data cleaning, transformation, and EDA
+Python (Pandas, NumPy, Matplotlib, Seaborn)
 
-SQL – Initial data querying and exploration
+SQL for data querying
 
-Tableau – Interactive dashboard for visual storytelling
+Tableau for dashboard creation
 
-Pandas, NumPy, Matplotlib, Seaborn – Data manipulation and visualization
+Jupyter Notebook for development
 
 🧵 Dataset Overview
 
-Source: Kaggle – Sephora Products and Skincare Reviews
+Source: Kaggle
 
-Size: ~8,000 skincare products and ~1M user reviews
+Size: ~8,000 products, ~1M reviews
 
-Structure: Two relational tables (Products ↔ Reviews) linked by product_id
+Structure: Two tables joined by product_id
 
-📈 Key KPIs & Insights
+📈 Key Insights
 
-Price Sensitivity: High satisfaction concentrated in products under $100
+✅ Only 2% of highly-rated products were out of stock
 
-Inventory Alert: Only 2% of highly rated products were out of stock
+💲 Most satisfied customers purchased items under $100
 
-Online-Only Products: Performed equally well as in-store products
+🌐 Online-only products perform as well as in-store
 
-Review Helpfulness: 77% of reviews deemed helpful by users
+🧡 Lip Sleeping Mask is the most loved & reviewed
 
-Top Products:
+🥇 Top brands: Erno Laszlo, Gisou, MARA
 
-Lip Sleeping Mask (most loved & reviewed)
+👤 Stakeholder
 
-Essence Skincare Boosting Treatment (top online-only product)
-
-Top Brands: Erno Laszlo, Gisou, MARA
-
-👤 Target Stakeholder
-
-E-commerce Optimization Specialist – Focused on improving Sephora's digital storefront by analyzing performance trends, customer preferences, and inventory optimization.
+E-commerce Optimization Specialist – Uses insights to improve digital storefront performance, stock levels, and customer experience.
 
 ✅ Recommendations
 
-Highlight best-performing products in marketing
+Promote top-rated products in campaigns
 
-Use incentives to boost detailed, helpful reviews
+Encourage helpful reviews via incentives
 
-Monitor stock of high-rated products in real time
+Monitor stock for bestsellers in real time
 
-Strategically discount mid-priced products
+Apply discounts to mid-priced items strategically
 
-Expand online-only inventory in high-performing categories
+Expand online-only offerings in successful categories
 
-📁 Repository Contents
+📁 Files in This Repo
 
-Data Cleaning + EDA-Python.ipynb – Full Python notebook
+Data Cleaning + EDA-Python.ipynb – Main analysis notebook
 
-Sephora Products Dashboard.twbx – Tableau dashboard
+Sephora Products Dashboard.twbx – Tableau visualization
 
-sql.txt – SQL queries for data exploration
+sql.txt – SQL queries used
 
-Final Project Report.pdf – Full written report with findings and stakeholder analysis
+Final Project Report.pdf – Full report with detailed analysis
 
