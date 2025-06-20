@@ -6,10 +6,9 @@ This project analyzes Sephora skincare products and customer reviews to uncover 
 Identify top-performing products and understand how factors like pricing, online-only status, and stock availability affect customer behavior.
 
 ## 🛠️ Tools & Technologies
-- Python (Pandas, NumPy, Matplotlib, Seaborn)
-- SQL
+- Google Colab for Python (Pandas, NumPy, Matplotlib, Seaborn)
+- DB Browser for SQLite for SQL
 - Tableau
-- Jupyter Notebook
 
 ## 📚 Dataset Overview
 - **Source:** [Kaggle](https://www.kaggle.com/datasets/nadyinky/sephora-products-and-skincare-reviews)
